@@ -4,6 +4,7 @@
 #include "lve_pipeline.h"
 #include "lve_device.h"
 #include "lve_swap_chain.h"
+#include "lve_model.h"
 
 #include <memory>
 #include <vector>
@@ -24,6 +25,7 @@ namespace lve {
 		void run();
 
 	private:
+		void loadModels();
 		void createPipelineLayout();
 		void createPipeline();
 		void createCommandBuffers();
@@ -35,5 +37,6 @@ namespace lve {
 		std::unique_ptr<LvePipeline> lvePipeline; // Simulates pointer automatically handles pointer memory so don't have to call new and delete
 		VkPipelineLayout pipelineLayout;
 		std::vector<VkCommandBuffer> commandBuffers;
+		std::unique_ptr<LveModel> lveModel;
 	};
 }
